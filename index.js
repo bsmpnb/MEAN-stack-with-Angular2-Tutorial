@@ -13,10 +13,12 @@ mongoose.createConnection(config.uri, (err) => {
         console.log('Connect to database: ' + config.db);
     }
 });
+
 app.use(express.static( __dirname + '/client/dist/'));
+
 app.get('*', (req, res) => {
-  res.send('<h1>hello world</h1>');
-  res.sendFile(path.join(__dirname + '/client/dist/index.html'));
+    /**res.send('<h1>hello world</h1>');**/
+    res.sendFile(path.join(__dirname + '/client/dist/index.html'));
 });
 
 app.listen(1337,() => {
